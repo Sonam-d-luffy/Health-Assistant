@@ -9,15 +9,22 @@ import appointmentRoutes from './route/appointmentRoute.js'
 import cors from 'cors'
 dotenv.config()
 
-const app = express()
+const allowedOrigins = [
+process.env.FRONTEND_URL  
+];
 
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL,
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true
   })
 );
-
 
 app.use(express.json({ limit: '10mb' }))
 app.use('/api/userAuth' , loginRoute)

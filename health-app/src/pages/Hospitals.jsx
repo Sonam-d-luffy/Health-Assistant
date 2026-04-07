@@ -15,7 +15,7 @@ const Hospitals = () => {
   useEffect(() => {
     const fetchHospitals = async() => {
       try {
-        const res = await axios.get('${import.meta.env.VITE_BACKEND_URL}/api/hospitals/hospitalsNearYou' , {
+        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/hospitals/hospitalsNearYou` , {
           params: {email}
         })
         setHospitals(res.data.hospitals)

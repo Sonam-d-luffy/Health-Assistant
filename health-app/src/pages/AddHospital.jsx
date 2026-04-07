@@ -27,7 +27,7 @@ const AddHospital = () => {
       setLoading(true);
 
       // Step 1: Get signature from backend
-      const { data: signData } = await axios.get("${import.meta.env.VITE_BACKEND_URL}/api/hospitals/cloudinary-signature");
+      const { data: signData } = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/hospitals/cloudinary-signature`);
 console.log(signData);
 
       // Step 2: Upload to Cloudinary
@@ -106,7 +106,7 @@ const handleSubmit = async (e) => {
     .filter(item => item);
 
   try {
-    await axios.post('${import.meta.env.VITE_BACKEND_URL}/api/hospitals/hospital', {
+    await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/hospitals/hospital`, {
       ...formData,
       email,
       healthCheckups: healthCheckupsArray,

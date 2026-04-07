@@ -53,7 +53,7 @@ const Location = () => {
       e.preventDefault()
       if(!address.trim()) return
       try {
-         await axios.post('${import.meta.env.VITE_BACKEND_URL}/api/location/address', { email, address,label })
+         await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/location/address`, { email, address,label })
       
         setAddress('')
         await fetchAddresses()

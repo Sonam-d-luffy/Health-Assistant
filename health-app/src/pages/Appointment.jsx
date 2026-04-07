@@ -66,7 +66,7 @@ const Appointment = () => {
       setMessage("Please fill all required field");
       return;
     }
-     const res = await axios.post('${import.meta.env.VITE_BACKEND_URL}/api/appointments/book' , {
+     const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/appointments/book` , {
         ...formdata,
 
   hospitalId,
