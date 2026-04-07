@@ -8,7 +8,7 @@ import hospitals from './route/hospitalRoute.js'
 import appointmentRoutes from './route/appointmentRoute.js'
 import cors from 'cors'
 dotenv.config()
-
+const app = express()
 const allowedOrigins = [
 process.env.FRONTEND_URL  
 ];
