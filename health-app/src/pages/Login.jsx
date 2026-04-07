@@ -15,7 +15,9 @@ const Login = () => {
     try {
          localStorage.removeItem('selectedAddressId');
     localStorage.removeItem('selectedAddress');
-      const endpoint = login ? '${import.meta.env.vite_backend_url}/api/userAuth/login' : '${import.meta.env.vite_backend_url}/api/userAuth/signup'
+      const endpoint = login ? `${import.meta.env.VITE_BACKEND_URL}/api/userAuth/login` : `${import.meta.env.VITE_BACKEND_URL}/api/userAuth/signup`
+        
+      
       const formData = login ? {email , password} : {name , email , password}
       const res = await axios.post(endpoint , formData)
    

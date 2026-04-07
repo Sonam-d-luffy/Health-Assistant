@@ -15,7 +15,7 @@ const Location = () => {
 
   const fetchAddresses = async() => {
     try {
-      const res = await axios.get(`${import.meta.env.vite_backend_url}/api/location/all-addresses?email=${email}`)
+      const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/location/all-addresses?email=${email}`)
       setAddresses(res.data.addresses)
     } catch (error) {
       console.error(error)
@@ -53,7 +53,7 @@ const Location = () => {
       e.preventDefault()
       if(!address.trim()) return
       try {
-         await axios.post('${import.meta.env.vite_backend_url}/api/location/address', { email, address,label })
+         await axios.post('${import.meta.env.VITE_BACKEND_URL}/api/location/address', { email, address,label })
       
         setAddress('')
         await fetchAddresses()
@@ -71,14 +71,14 @@ const Location = () => {
     localStorage.setItem('selectedAddress', JSON.stringify(selected)); // ✅ store full address
   }
        try {
-         await axios.put(`${import.meta.env.vite_backend_url}/api/location/select-address?email=${email}`, { email, addressId: id });
+         await axios.put(`${import.meta.env.VITE_BACKEND_URL}/api/location/select-address?email=${email}`, { email, addressId: id });
     } catch (error) {
       console.error('Error setting current address:', error);
     }
   }
   const handleDelete = async (addressId) => {
   try {
-    await axios.delete('${import.meta.env.vite_backend_url}/api/location/address', {
+    await axios.delete('${import.meta.env.VITE_BACKEND_URL}/api/location/address', {
       params: {
         email,
         addressId

@@ -29,7 +29,7 @@ const Appointment = () => {
     setUser({email , name})
        const fetchDepartments = async () => {
       try {
-        const res = await axios.get(`${import.meta.env.vite_backend_url}/api/hospitals/${hospitalId}/departments`);
+        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/hospitals/${hospitalId}/departments`);
         setDepartments(res.data.departments || []);
       } catch (error) {
         console.error("Failed to fetch departments", error);
@@ -44,7 +44,7 @@ const Appointment = () => {
     if (formdata.department) {
       const fetchDoctors = async () => {
         try {
-          const res = await axios.get(`${import.meta.env.vite_backend_url}/api/hospitals/${hospitalId}/doctors/${formdata.department}`);
+          const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/hospitals/${hospitalId}/doctors/${formdata.department}`);
           setDoctors(res.data.doctors || []);
         } catch (error) {
           console.error("Failed to fetch doctors", error);
@@ -66,7 +66,7 @@ const Appointment = () => {
       setMessage("Please fill all required field");
       return;
     }
-     const res = await axios.post('${import.meta.env.vite_backend_url}/api/appointments/book' , {
+     const res = await axios.post('${import.meta.env.VITE_BACKEND_URL}/api/appointments/book' , {
         ...formdata,
 
   hospitalId,

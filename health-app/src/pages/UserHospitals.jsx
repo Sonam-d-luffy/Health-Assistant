@@ -25,7 +25,7 @@ const UserHospitals = () => {
       }
 
       try {
-        const res = await axios.get(`${import.meta.env.vite_backend_url}/api/hospitals/yourHospitals?email=${email}`)
+        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/hospitals/yourHospitals?email=${email}`)
         setHospitals(res.data.hospitalsUpoadedbyYou);
       } catch (error) {
         setError(error.response?.data?.message || 'Failed to fetch hospitals');
@@ -42,7 +42,7 @@ const UserHospitals = () => {
     const confirm = window.confirm("Are you sure you want to delete this hospital?");
     if (!confirm) return;
 
-    await axios.delete(`${import.meta.env.vite_backend_url}/api/hospitals/${id}`);
+    await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/api/hospitals/${id}`);
     alert('Hospital deleted successfully');
 
     // Refresh the list of hospitals after deletion

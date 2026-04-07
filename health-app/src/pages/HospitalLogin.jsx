@@ -14,7 +14,7 @@ const HospitalLogin = () => {
   const handleLogin = async(e) => {
     e.preventDefault()
     try {
-      const endpoint = login ? '${import.meta.env.vite_backend_url}/api/hospitalAuth/login' : '${import.meta.env.vite_backend_url}/api/hospitalAuth/signup'
+      const endpoint = login ? '${import.meta.env.VITE_BACKEND_URL}/api/hospitalAuth/login' : '${import.meta.env.VITE_BACKEND_URL}/api/hospitalAuth/signup'
       const formData = login ? {email , password} : {name , email , password}
       const res = await axios.post(endpoint , formData)
    
