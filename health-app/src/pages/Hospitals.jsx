@@ -15,7 +15,7 @@ const Hospitals = () => {
   useEffect(() => {
     const fetchHospitals = async() => {
       try {
-        const res = await axios.get('http://localhost:4000/api/hospitals/hospitalsNearYou' , {
+        const res = await axios.get('${import.meta.env.vite_backend_url}/api/hospitals/hospitalsNearYou' , {
           params: {email}
         })
         setHospitals(res.data.hospitals)

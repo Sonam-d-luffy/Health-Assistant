@@ -10,7 +10,7 @@ const YourAppointments = () => {
   useEffect(() => {
     const fetchapp = async() => {
       try {
-        const res = await axios.get(`http://localhost:4000/api/appointments/user/${userId}`)
+        const res = await axios.get(`${import.meta.env.vite_backend_url}/api/appointments/user/${userId}`)
         setAppointments(res.data)
       } catch (error) {
         console.log(error)
@@ -30,7 +30,7 @@ const YourAppointments = () => {
       const confirmed = window.confirm("Are you sure you want to delete this appointment?");
   if (!confirmed) return;
   try {
-    await axios.delete(`http://localhost:4000/api/appointments/${id}`);
+    await axios.delete(`${import.meta.env.vite_backend_url}/api/appointments/${id}`);
     setAppointments(prev => prev.filter(a => a._id !== id)); // remove from state
   } catch (error) {
     console.error("Error deleting appointment:", error);

@@ -13,7 +13,7 @@ const HospitalDetails = () => {
     useEffect(() => {
         const fetchHospital = async() => {
             try {
-                const res = await axios.get(`http://localhost:4000/api/hospitals/${id}`)
+                const res = await axios.get(`${import.meta.env.vite_backend_url}/api/hospitals/${id}`)
                 setHospital(res.data.hospitalInfo)
 
             } catch (error) {

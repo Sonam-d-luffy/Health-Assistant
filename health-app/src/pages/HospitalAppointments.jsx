@@ -10,7 +10,7 @@ const HospitalAppointments = () => {
        const fetchAppointments = async() => {
             setLoading(true)
             try {
-                const res = await axios.get(`http://localhost:4000/api/appointments/hospital/${hospitalId}`)
+                const res = await axios.get(`${import.meta.env.vite_backend_url}/api/appointments/hospital/${hospitalId}`)
                 setAppointments(res.data)
                 setLoading(false)
             } catch (error) {
@@ -31,7 +31,7 @@ const HospitalAppointments = () => {
       const updateStatus = async (id, status) => {
     if (!window.confirm(`Are you sure you want to mark this appointment as "${status}"?`)) return;
     try {
-      const res = await axios.patch(`http://localhost:4000/api/appointments/${id}`, { status });
+      const res = await axios.patch(`${import.meta.env.vite_backend_url}/api/appointments/${id}`, { status });
       alert(res.data.message);
       fetchAppointments(); // refresh list
     } catch (error) {

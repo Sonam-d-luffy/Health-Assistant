@@ -2,14 +2,13 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Disease from "./pages/Disease";
-import Login from "./pages/login";
-import Av from "./pages/Av";
+import Login from "./pages/Login";
 import Health from "./pages/Health";
-import Hospitals from "./pages/hospitals";
-import Location from "./pages/location";
+import Hospitals from "./pages/Hospitals";
+import Location from "./pages/Location";
 import HospitalLogin from "./pages/HospitalLogin";
 import AddHospital from "./pages/AddHospital";
-import UserHospitals from "./pages/userHospitals";
+import UserHospitals from "./pages/UserHospitals";
 import HospitalDetails from "./pages/HospitalDetails";
 import Appointment from "./pages/Appointment";
 import Treatment from "./pages/Treatment";
@@ -27,13 +26,13 @@ function App() {
         <Route path='/treatment' element={<Treatment />} />
         <Route path='/hospitals' element={<Hospitals />} />
         <Route path="/addressPage" element={<Location/>}/>
-        <Route path="/hosptalLogin" element={<HospitalLogin/>}/>
+        <Route path="/hospitalLogin" element={<HospitalLogin/>}/>
         <Route path="/addHospitals" element={<AddHospital/>}/>
         <Route path="/yourHospitals" element={<UserHospitals/>}/>
         <Route path='/hospitalDetails/:id' element={<HospitalDetails/>}/>
         <Route path='/appointmentPage/:hospitalId' element={<Appointment/>}/>
         <Route path='/yourAppointment' element={<YourAppointments/>}/>
-        <Route path='/hosptitalAppointments' element={<HospitalAppointments/>}/>
+        <Route path='/hospitalAppointments' element={<HospitalAppointments/>}/>
       </Routes>
     </Router>
   );
