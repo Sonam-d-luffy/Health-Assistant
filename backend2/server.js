@@ -15,7 +15,7 @@ process.env.FRONTEND_URL
 
 app.use(
   cors({
-    origin: "https://health-assistant-12vc.vercel.app",
+    origin: process.env.FRONTEND_URL,
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"]
